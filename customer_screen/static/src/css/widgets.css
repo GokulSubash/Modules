@@ -1,0 +1,82 @@
+.Pending{
+    background-color:#b18940;
+    color:white;
+}
+.Ready{
+    background-color:#407540;
+    color:white;
+}
+.Completed{
+    background-color:#8285f7;
+    color:white;
+}
+.Cancelled{
+    background-color:#f93c3c;
+    color:white;
+}
+.Delivered{
+    background-color:#407540;
+    color:white;
+}
+
+
+/*POS Retail Custom*/
+
+/*.categories .category-list-scroller{
+    height: 200px;
+}*/
+
+.payment-buttons .add_note{
+    display: none;
+}
+
+
+
+.icon_line .icon_line_logo{
+    display: none;
+}
+
+
+.buttons_pane .button-list{
+    padding-top: 30px;
+}
+
+.buttons_pane .button-list .control-button{
+    width: 80%;
+    background: #39383a;
+    border: solid 1px #39383a;
+    color: #ffffff;
+}
+.buttons_pane .button-list .control-button:hover{
+    width: 80%;
+    background: #6ec89b;
+    border: solid 1px #6ec89b;
+    color: #39383a;
+}
+
+/*hide sale ticket in client-screen*/
+
+.clientlist-screen .pos-sale-ticket{
+    display:none;
+}
+
+.clientlist-screen .top-content{
+    left:5% !important;
+}
+
+.clientlist-screen .full-content{
+    left:5% !important;
+    right: 5% !important;
+}
+
+.payment-screen .pos-sale-ticket{
+    display:none;
+}
+
+.quick_payment_list{
+    margin-left: 90px !important;
+    margin-top: 90px !important;
+}
+.screen .middle-content{
+    position: unset;
+}

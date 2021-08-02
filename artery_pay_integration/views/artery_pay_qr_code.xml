@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_arterypay_qrcode" model="ir.ui.view">
+        <field name="name">pos.arterypay.qrcode</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fiscal_position_id']" position="after">
+                <field name="artery_pay_QR"  widget="image" string="ArteryPay QR"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_arterypay_qrcode" model="ir.ui.view">
+        <field name="name">sales.arterypay.qrcode</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_invoice_id']" position="after">
+                <field name="artery_pay_QR"  widget="image" string="ArteryPay QR"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ReturnButton">
+        <div class='control-button'>
+            <i class="fa fa-shopping-cart" />Order History
+        </div>
+    </t>
+
+    <t t-name="OrderLines">
+        <tr class='order-line' t-att-data-id='order.id'>
+            <td><t t-esc='order.name' /></td>
+            <td><t t-esc='order.partner_id[1]' /></td>
+            <td><t t-esc='order.amount_total' /></td>
+            <td><t t-esc='order.payment_status' /></td>
+            <td><t t-esc='order.delivery_status' /></td>
+        </tr>
+    </t>
+
+    <t t-name="ReturnOrdersWidget">
+        <div class="clientlist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h2 style="text-align: center;color:white;" >Customer Order Status</h2>
+                </section>
+                <section style="margin-top:60px" class="top-content">
+                    <div style="margin-top: 25px;">
+                        <div class="sale_type" style="float:left">
+                          <select class="order_type" style="font-size: 20px;margin-left:20px">
+                            <option value="all">All</option>
+                            <option value="pos">POS</option>
+                            <option value="Mobile">Mobile</option>
+                            <option value="Website">Website</option>
+                           </select>
+                        </div>
+                        <div>
+                            <span class="searchbox">
+                                <input placeholder="Search Orders" class="order_search">
+                                </input>
+                            </span>
+                        </div>
+                    </div>
+
+                </section>
+                <section style="top: 126px;" class="full-content">
+                    <div class='window'>
+                        <section class='subwindow collapsed'>
+                            <div class='subwindow-container collapsed'>
+                                <div class='subwindow-container-fix order-details-contents'>
+                                </div>
+                            </div>
+                        </section>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y' style="margin-top: 20px;">
+                                    <table class='client-list' style="margin-bottom: 40px;">
+                                        <thead>
+                                            <tr>
+                                                <th>Order Number</th>
+                                                <th>Customer Name</th>
+                                                <th>Amount</th>
+                                                <th>Payment</th>
+                                                <th>Delivery Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='order-list-lines'>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+</templates>

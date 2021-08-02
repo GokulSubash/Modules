@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_quantity_project_task" model="ir.ui.view">
+        <field name="name">purchase.quantity</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[6]" position="before">
+                <page name="purchaseQty" string="Purchase Quantity">
+                    <field name="purchased">
+                        <tree string="Quantity Limit">
+                            <field name="productCategType"/>
+                            <field name="qty"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+

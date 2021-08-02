@@ -1,0 +1,79 @@
+from odoo.http import request
+from odoo import http
+import json
+from odoo import models, fields, api, _
+
+
+class log_in_credentials(http.Controller):
+    def userLogin(self,**kwargs):
+        username = kwargs.get('username')
+        password = kwargs.get('password')
+        db = kwargs.get('db')
+        uid = request.session.authenticate(db, username,password)
+        if uid:
+            jsondata = json.dumps(uid)
+            return jsondata
+        else:
+            return False
+
+    #to check the login info
+    @http.route('/api/login', methods=['POST'], auth='public', csrf=False)
+    def login(self,**kwargs):
+        uid=self.userLogin(**kwargs) # here am calling the login methord as a separate function which is given above
+        if uid:
+            jsondata = json.dumps(uid)
+            return jsondata
+        else:
+            return "wrong credential"
+
+
+
+    @http.route('/newreach/country/details', methods=['POST'], auth='public', csrf=False)
+    def Get_Country_Details(self, **kwargs):
+        countries = request.env['res.country'].search([])
+        country = {'country': []}
+        for i in countries:
+            vals = {'name': i.name, 'id': i.id, 'states': []}
+            for state in i.state_ids:
+                vals['states'].append({'id': state.id, 'name': state.name})
+            country['country'].append(vals)
+        country = json.dumps(country)
+        return country
+
+
+
+
+    @http.route('/newreach/customer/create', methods=['POST'], auth='public', csrf=False)
+    def customer_Create(self, **kwargs):
+
+        vals = {
+            'name': kwargs.get('name'),
+            'login': kwargs.get('login'),
+            'in_group_10': True
+        }
+        print(vals)
+        user = request.env['res.users'].sudo().create(vals)
+        val = {
+            'email': kwargs.get('login'),
+            # 'country_id':kwargs.get('country_id'),
+            'street': kwargs.get('street'),
+            'street2': kwargs.get('street2'),
+            # 'state_id':kwargs.get('state_id'),
+            'city': kwargs.get('city'),
+            'zip': kwargs.get('zip'),
+            'idNumber': kwargs.get('idNumber'),
+            'idExpDate': kwargs.get('idExpDate'),
+            'issuePlace': kwargs.get('issuePlace'),
+	    'dob': kwargs.get('dob'),
+            'idtype': kwargs.get('idtype'),
+            'firstname': kwargs.get('firstname'),
+            'lastName': kwargs.get('lastName'),
+	    
+
+        }
+        user.partner_id.write(val)
+        print(user)
+        return 'Ok'
+
+
+

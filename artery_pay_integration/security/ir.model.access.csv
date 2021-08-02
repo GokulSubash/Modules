@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+artery_pay,artery_pay_model,model_artery_pay,base.group_user,1,1,1,1
+artery_pay_history,artery_pay_history_model,model_artery_pay_history,base.group_user,1,1,1,1

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_task" model="ir.ui.view">
+        <field name="name">project.task.inherit.mine</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[3]" position="before">
+                <page name="idDetails" string="Id Details">
+                    <group>
+                        <div>
+                            <group>
+                                <field name="firstname"/>
+                                <field name="lastName"/>
+                                <field name="gen" widget="radio"/>
+                                <field name="idNumber"/>
+                                <field name="idExpDate"/>
+                                <field name="idType"/>
+                                <field name="issuePlace"/>
+                                <field name="dob"/>
+                            </group>
+                        </div>
+                        <div>
+                            <group>
+                                <field name="image1" widget="image" class="oe_avatar"/>
+                            </group>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_task" model="ir.ui.view">
+        <field name="name">product.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group[@name='first']" position="after">
+                <group>
+                    <group string="Adult Usage Limit">
+                        <field name="maximumAdultOunce"/>
+                        <field name="maximumLimitAdult"/>
+                    </group>
+                    <group string="Medical Usage Limit">
+                        <field name="maximumMedicalOunce"/>
+                        <field name="maximumLimitMedical"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+
+
+
+
